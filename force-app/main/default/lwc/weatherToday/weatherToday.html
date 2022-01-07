@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title="Weather Today" icon-name="custom:custom63">
+        <div class="slds-var-p-around_large">
+            <template if:true={datasApex}>
+                <p>{datasApex.results.description}</p>
+            </template>
+            <template if:false={datasApex}>
+                <p>No data! Sorry</p>
+            </template>
+            <!-- <template if:true={weathers.error}>
+                <c-error-panel errors={weathers.error}></c-error-panel>
+            </template> -->
+        </div>
+    </lightning-card>   
+</template>

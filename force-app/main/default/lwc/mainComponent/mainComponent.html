@@ -1,0 +1,11 @@
+<template>
+    <div class="divMain">
+        <lightning-layout class="divMain"  multiple-rows>
+            <template for:each={arrCards} for:item="card">
+                <lightning-layout-item key={card.Id} size="4" padding="around-small">
+                    <c-card-component card={card}></c-card-component>
+                </lightning-layout-item>  
+            </template>
+        </lightning-layout>
+    </div>
+</template>
