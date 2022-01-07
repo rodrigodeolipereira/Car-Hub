@@ -1,3 +1,4 @@
 .THIS .center{
-    padding: 0 12px;
+    padding: spacingNone 12px;
+    margin-left: 12px;
 }
