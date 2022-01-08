@@ -5,8 +5,9 @@ export default class CarTileList extends LightningElement {
 
     cars
     error
+    filters = {}
 
-    @wire (getCars) 
+    @wire (getCars, {filters: '$filters'}) 
     carsHandler ({data, error}) {
         if (data) {
             //console.log(data)
