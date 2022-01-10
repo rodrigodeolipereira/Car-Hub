@@ -12,8 +12,10 @@
             <lightning:layoutItem aura:id="leftColumn" size="2">
                 {!v.left}
             </lightning:layoutItem>
-            <lightning:layoutItem aura:id="centerColumn" size="7" class="centerMiddle">
-                {!v.center}
+            <lightning:layoutItem aura:id="centerColumn" size="7">
+                <div class="slds-var-p-horizontal_small">
+                    {!v.center}
+                </div>
             </lightning:layoutItem>
             <lightning:layoutItem aura:id="rightColumn" size="3">
                 {!v.right}

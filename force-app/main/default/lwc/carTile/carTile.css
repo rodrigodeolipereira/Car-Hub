@@ -1,7 +1,8 @@
 img.carImage {
     height: 120px;
     max-width: initial;
-    pointer-events: none;
+    /* pointer-events: none; */
+    cursor: pointer;
 }
 
 .title {

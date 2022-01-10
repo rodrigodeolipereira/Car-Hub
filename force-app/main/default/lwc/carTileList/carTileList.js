@@ -1,7 +1,8 @@
 import { LightningElement, wire } from 'lwc';
 import getCars from '@salesforce/apex/CarController.getCars';
-import {subscribe, MessageContext} from 'lightning/messageService';
+import {subscribe, MessageContext, publish, unsubscribe} from 'lightning/messageService';
 import CARS_FILTERED_MESSAGE from '@salesforce/messageChannel/CarsFiltered__c';
+import CAR_SELECTED_MESSAGE from '@salesforce/messageChannel/CarSelected__c';
 
 export default class CarTileList extends LightningElement {
 
@@ -34,7 +35,18 @@ export default class CarTileList extends LightningElement {
     }
 
     handlerFilteredChanges(message) {
-        console.log('Message bring from channel: ' + JSON.stringify(message.filters))
         this.filters = message.filters;
+    }
+
+    handleCarSelected(event) {
+        console.log("select car id", event.detail)
+        publish(this.messageContext, CAR_SELECTED_MESSAGE, {
+            carId: event.detail
+        })
+    }
+
+    disconnectedCallback() {
+        unsubscribe(this.carsFilterSubscription)
+        this.carsFilterSubscription = null
     }
 }
